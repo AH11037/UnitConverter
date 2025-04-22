@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+</head>
+<style>
+    
+    html * {
+        font-family: cursive;
+    }
+
+    .link {
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+    }
+
+    .selected {
+        color: #007BFF;
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <h1>Unit Converter</h1>
+    <a href="/?option=Length" class="link {{ 'selected' if request.args.get('option') == 'Length' else '' }}">Length</a>
+    <a href="/?option=Weight" class="link {{ 'selected' if request.args.get('option') == 'Weight' else '' }}">Weight</a>
+    <a href="/?option=Temperature" class="link {{ 'selected' if request.args.get('option') == 'Temperature' else '' }}">Temperature</a><br><br>
+    <form method = 'POST'>
+    Enter the length to convert<br>
+    <input type = 'number' name = 'value' required><br><br>
+    <label for="from_unit">Unit to convert from</label><br>
+    <select name='from_unit' required>
+        {% if request.args.get('option') == 'Length' %}
+            <option value="meter">Meter</option>
+            <option value="kilometer">Kilometer</option>
+            <option value="mile">Mile</option>
+            <option value="foot">Foot</option>
+            <option value="inch">Inch</option>
+            <option value="centimeter">Centimeter</option>
+            <option value="millimeter">Millimeter</option>
+            <option value="yard">Yard</option>
+        {% elif request.args.get('option') == 'Weight' %}
+            <option value="grams">Grams</option>
+            <option value="kilograms">Kilograms</option>
+            <option value="ounce">Ounce</option>
+            <option value="pound">Pound</option>
+            <option value="milligram">Milligram</option>
+        {% elif request.args.get('option') == 'Temperature' %}
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        {% endif %}
+    </select><br><br>
+    <label for="to_unit">Unit to convert to:</label><br>
+        <select name='to_unit' required>
+            {% if request.args.get('option') == 'Length' %}
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="mile">Mile</option>
+                <option value="foot">Foot</option>
+                <option value="inch">Inch</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="millimeter">Millimeter</option>
+                <option value="yard">Yard</option>
+            {% elif request.args.get('option') == 'Weight' %}
+                <option value="grams">Grams</option>
+                <option value="kilograms">Kilograms</option>
+                <option value="ounce">Ounce</option>
+                <option value="pound">Pound</option>
+                <option value="milligram">Milligram</option>
+            {% elif request.args.get('option') == 'Temperature' %}
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+            {% endif %}
+        </select><br><br>
+    <button type="submit">Convert</button>
+    </form>
+</body>
+</html>

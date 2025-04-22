@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<style>
+
+    html * {
+            font-family: cursive;
+        }
+
+    .link {
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+    }
+
+    .selected {
+        color: #007BFF;
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <h1>Unit Converter</h1>
+    <a href="/?option=Length" class="link {% if option == 'Length' %}selected{% endif %}">Length</a>
+    <a href="/?option=Weight" class="link {% if option == 'Weight' %}selected{% endif %}">Weight</a>
+    <a href="/?option=Temperature" class="link {% if option == 'Temperature' %}selected{% endif %}">Temperature</a><br><br>
+    <p1> Result of your calculation</p1>
+    <h2>{{ value }} {{ units[from_unit] }} = {{ output }} {{ units[to_unit] }}</h2>
+    <form action="{{ url_for('index') }}" method="get">
+        <button type="submit">Reset</button>
+    </form>
+</body>
