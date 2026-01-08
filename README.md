@@ -1,5 +1,5 @@
 # Unit Converter
-This is a Flask-based web application that allows users to convert values between different units of **Length,Weight and Temperature** through a simple and dynamic web interface. </br>
+This is a Flask-based web application that allows users to convert values between different units of **length, weight and temperature** through a simple and dynamic web interface. </br>
 The project utilizes my **first tech stack** to provide a clean end-to-end conversion flow.
 ## Screenshots
 ### Home Page
